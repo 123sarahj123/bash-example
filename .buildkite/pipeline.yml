@@ -1,5 +1,5 @@
 agents:
-  queue: my-queue-name
+  queue: default-queue
 
 steps:
   - command: echo hello world && exit 123
