@@ -1,6 +1,9 @@
+agents:
+  queue: my-queue-name
+
 steps:
-  - label: ":hammer: Example Script"
-    command: "script.sh"
-    artifact_paths: "artifacts/*"
-    agents:
-      queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"
+  - command: echo hello world && exit 123
+
+notify:
+  - if: "build.state != 'passed'"
+    slack: "#legacy-slack-channel-for-notifications"
